@@ -1,3 +1,6 @@
+import scoutActionTypes from './scout.action.types'
+
+
 // GET ALL SCOUTS (FOR LIST)
 const scoutsLoading = () => {
     return { type: scoutActionTypes.SCOUTS_LOADING }
@@ -75,3 +78,46 @@ const scoutDeleteError = (errorMessage) => ({
     type: scoutActionTypes.SCOUT_DELETE_ERROR,
     payload: errorMessage,
 })
+
+// DELETE A SCOUTS 
+const scoutsSearching = () => {
+    return { type: scoutActionTypes.SCOUTS_DELETING }
+}
+
+const scoutsSearchFound = (scout) => ({
+    type: scoutActionTypes.SCOUTS_DELETED,
+    payload: scout,
+})
+
+const scoutsSearchNotFound = (errorMessage) => ({
+    type: scoutActionTypes.SCOUTS_DELETE_ERROR,
+    payload: errorMessage,
+})
+
+const scoutsSearchError = (errorMessage) => ({
+    type: scoutActionTypes.SCOUTS_DELETE_ERROR,
+    payload: errorMessage,
+})
+
+
+export default {
+    scoutsLoading,
+    scoutsLoaded,
+    scoutsLoadingError,
+
+    scoutLoading,
+    scoutLoaded,
+    scoutLoadingError,
+
+    scoutAdding,
+    scoutAdded,
+    scoutAddError,
+
+    scoutUpdating,
+    scoutUpdated,
+    scoutUpdateError,
+
+    scoutDeleting,
+    scoutDeleted,
+    scoutDeleteError
+}
