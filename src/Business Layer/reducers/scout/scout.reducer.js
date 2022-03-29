@@ -32,3 +32,27 @@ export default function scoutsReducer(state = initialState, action) {
                 scoutsLoading: false,
                 error: action.payload,
             };
+            case scoutActionTypes.SCOUT_LOADING:
+                return {
+                    ...state,
+                    scoutLoading: true,
+                    error: null
+                }
+            case scoutActionTypes.SCOUT_LOADED:
+                return {
+                    ...state,
+                    scout: action.payload,
+                    scoutLoading: false,
+                };
+        
+            case scoutActionTypes.SCOUT_LOADING_ERROR:
+                return {
+                    ...state,
+                    scoutLoading: false,
+                    error: action.payload,
+                };
+            
+            default:
+                return state;
+            }
+        };
