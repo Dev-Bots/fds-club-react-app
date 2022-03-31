@@ -20,3 +20,16 @@ class ScoutDataService {
     deleteEvent(id) {
         return http.delete(`${SCOUT_ENDPOINT}${id}`);
     }
+    deleteEvent(id) {
+        return http.delete(`${SCOUT_ENDPOINT}${id}`);
+    }
+
+    deleteAllEvents() {
+        return http.delete(`${SCOUT_ENDPOINT}`);
+    }
+    
+    findEventByTitle(title) {
+        return http.get(`${SCOUT_ENDPOINT}?title=${title}`);
+    }
+}
+export default new ScoutDataService();
