@@ -1,5 +1,5 @@
 import scoutActions from '../../actions/scout/scout.actions'
-
+import ScoutDataService from '../../../Data Layer/services/scout/scout.service';
 
 export const getScouts = () => (dispatch) => {
 
