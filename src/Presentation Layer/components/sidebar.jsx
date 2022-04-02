@@ -149,3 +149,117 @@ export const Sidebar = (props) => {
             </Box>
           </Box>
         </div>
+
+{/* ===================The Menu=================================== */}
+
+<Divider
+          sx={{
+            borderColor: '#2D3748',
+            my: 3
+          }}
+        />
+        <Box sx={{ flexGrow: 1 }}>
+          {items.map((item) => (
+            <NavItem 
+              style={{ textDecoration: 'none' }}
+              key={item.title}
+              icon={item.icon}
+              href={item.href}
+              title={item.title}
+            />
+          ))}
+        </Box>
+        <Divider sx={{ borderColor: '#2D3748' }} />
+        <Box
+          sx={{
+            px: 2,
+            py: 3
+          }}
+        >
+          <Typography
+            color="neutral.100"
+            variant="subtitle2"
+          >
+            Developed by DevBots
+          </Typography>
+          <Typography
+            color="neutral.500"
+            variant="body2"
+          >
+            Copyright &copy; {new Date().getFullYear()} DevBots
+          </Typography>
+          <Box
+            sx={{
+              display: 'flex',
+              mt: 2,
+              mx: 'auto',
+              width: '160px',
+              '& img': {
+                width: '100%'
+              }
+            }}
+          >
+           
+          </Box>
+          
+            <a href='https://blissful-euler-6bc84d.netlify.app' target="_blank" style={{ textDecoration: 'none' }}>
+              <Button
+              color="secondary"
+              // component="a"
+              // endIcon={(<OpenInNewIcon />)}
+              fullWidth
+              sx={{ mt: 2 }}
+              variant="contained"
+            >
+              Visit Our Website
+            </Button></a>
+            
+         
+        </Box>
+      </Box>
+    </>
+  ); 
+
+  if (lgUp) {
+    return (
+      <Drawer
+        anchor="left"
+        open
+        PaperProps={{
+          sx: {
+            backgroundColor: 'neutral.900',
+            color: '#FFFFFF',
+            width: 280
+          }
+        }}
+        variant="permanent"
+      >
+        {content}
+      </Drawer>
+    );
+  }
+
+  return (
+    <Drawer
+      anchor="left"
+      onClose={onClose}
+      open={open}
+      PaperProps={{
+        sx: {
+          backgroundColor: 'neutral.900',
+          color: '#FFFFFF',
+          width: 280
+        }
+      }}
+      sx={{ zIndex: (theme) => theme.zIndex.appBar + 100 }}
+      variant="temporary"
+    >
+      {content}
+    </Drawer>
+  );
+};
+
+Sidebar.propTypes = {
+  onClose: PropTypes.func,
+  open: PropTypes.bool
+};
