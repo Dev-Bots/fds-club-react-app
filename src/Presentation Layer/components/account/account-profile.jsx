@@ -38,4 +38,88 @@ import {
     }
     return response.data;
   }
+
+  export function AccountProfile(props) {
+  
+    // login("don", "pass")
+  
+    
+    const [isModalOpen, setModalOpen] = useState(false);
+    // const handleOpen = () => setModalOpen(true);
+  
+    return (
+      <Card {...props}>
+        <CardContent>
+          <Box
+            sx={{
+              alignItems: 'center',
+              display: 'flex',
+              flexDirection: 'column'
+            }}
+          >
+            <Avatar
+              src={user.avatar}
+              sx={{
+                height: 64,
+                mb: 2,
+                width: 64
+              }} />
+            <Typography
+              color="textPrimary"
+              gutterBottom
+              variant="h5"
+            >
+              {user.name}
+            </Typography>
+            <Typography
+              color="textSecondary"
+              variant="body2"
+            >
+              {`${user.city} ${user.country}`}
+            </Typography>
+            <Typography
+              color="textSecondary"
+              variant="body2"
+            >
+              {user.timezone}
+            </Typography>
+          </Box>
+        </CardContent>
+        <Divider />
+        <CardActions>
+  
+       
+  
+          {/* <Button
+                onClick={() => {console.log('Change Picture');}}
+                color="primary"
+                fullWidth
+                variant="text"
+              >
+                Upload picture
+              </Button> */}
+  
+  
+          {/* <Button
+              onClick={() => setModalOpen(true)}
+              color="primary"
+              fullWidth
+              variant="text"
+            >
+              Open Details
+            </Button>
+          <Modal isOpen={isModalOpen} setIsOpen={setModalOpen} /> */}
+  
+          <Button
+            onClick={() => { console.log('Change Picture'); } }
+            color="primary"
+            fullWidth
+            variant="text"
+          >
+            Change Profile
+          </Button>
+        </CardActions>
+      </Card>
+    );
+  }
   
