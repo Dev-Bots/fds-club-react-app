@@ -196,3 +196,127 @@ export const AccountProfileDetails = (props) => {
                 variant="outlined"
               />
             </Grid>
+            <Grid
+              item
+              md={6}
+              xs={12}
+            >
+              <TextField
+                fullWidth
+                label="Select State"
+                name="state"
+                onChange={handleChange}
+                required
+                select
+                SelectProps={{ native: true }}
+                value={values.state}
+                variant="outlined"
+              >
+                {states.map((option) => (
+                  <option
+                    key={option.value}
+                    value={option.value}
+                  >
+                    {option.label}
+                  </option>
+                ))}
+              </TextField>
+            </Grid>
+
+            <Grid
+              item
+              md={6}
+              xs={12}
+            >
+              
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                
+                <DateTimePicker
+                  renderInput={(params) => <TextField 
+                  
+                    {...params} />}
+                  label="Start Date"
+                  name='startDate'
+                  value={values.startDate}
+                  onChange={handleStartDateChange}
+                  // minDate={new Date('2020-02-14')}
+                  // minTime={new Date(0, 0, 0, 8)}
+                  // maxTime={new Date(0, 0, 0, 18, 45)}
+                />
+              
+            </LocalizationProvider>
+
+            </Grid>
+
+
+            <Grid
+              item
+              md={6}
+              xs={12}
+            >
+
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                
+                <DateTimePicker
+                  renderInput={(params) => <TextField 
+                  
+                    {...params} />}
+                  label="End Date"
+                  name='endDate'
+                  value={values.endDate}
+                  onChange={handleEndDateChange}
+                  // minDate={new Date('2020-02-14')}
+                  // minTime={new Date(0, 0, 0, 8)}
+                  // maxTime={new Date(0, 0, 0, 18, 45)}
+                />
+              
+            </LocalizationProvider>
+
+            </Grid>
+
+            
+            <Grid
+              item
+              md={6}
+              xs={12}
+            >
+              
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+
+            <DatePicker
+              label="Demo Date"
+              name='demoDate'
+              value={values.demoDate}
+              minDate={new Date('2017-01-01')}
+              onChange={handleDemoDateChange}
+              renderInput={(params) => <TextField {...params} />}
+            />
+                
+                
+              
+            </LocalizationProvider>
+
+            </Grid>
+           
+
+          </Grid>
+        </CardContent>
+        <Divider />
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+            p: 2
+          }}
+        >
+          <Button
+            color="primary"
+            variant="contained"
+          >
+            Save details
+          </Button>
+        </Box>
+      </Card>
+    </form>
+  );
+        };
