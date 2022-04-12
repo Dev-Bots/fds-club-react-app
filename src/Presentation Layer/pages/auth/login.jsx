@@ -119,4 +119,109 @@ function disableButton() {
             flexDirection: 'column',
             alignItems: 'center',
           }}
-        ></Box>
+        >
+
+   {/* ====================The Icon========================= */}
+        
+          {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <SportsSoccerIcon />
+          </Avatar> */}
+
+<Box sx={{  
+             
+             mb: '1rem',
+           
+             alignItems: 'center'
+          }}> 
+             <img src="/static/images/Hope Football-logos_transparent.png"  width="300" height="100" />
+         </Box>
+
+          {/* ====================The Sign In Text========================= */}
+
+         
+         <Typography component="h1" variant="h5">
+           Sign In
+           
+         </Typography>
+        
+        {/* ====================The Sign In Text========================= */}
+
+        {showError()}
+        
+
+        {/* ====================The Email Field========================= */}
+       
+
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+
+        {/* <div>{'Invalid Email or Password'}</div> */}
+
+           <TextField
+             margin="normal"
+             required
+             fullWidth
+             id="email"
+             label="Email Address"
+             name="email"
+             autoComplete="email"
+             autoFocus
+             
+             // helperText={text === "" ? 'Empty field!' : ' '}
+           />
+           
+
+            {/* ====================The Password Field========================= */}
+
+           <TextField
+             margin="normal"
+             required
+             fullWidth
+             name="password"
+             label="Password"
+             type="password"
+             id="password"
+             autoComplete="current-password"
+            
+           />
+
+           {/* ====================The ChechBox========================= */}
+           {/* <FormControlLabel
+             control={<Checkbox value="remember" color="primary" />}
+             label="Remember me"
+           /> */}
+
+            {/* ====================The Login Button========================= */}
+
+            {disableButton()}
+           
+
+           {/* ====================The Forgot Password Button========================= */}
+           <Grid container>
+             <Grid item xs>
+               <Link href="#" variant="body2">
+                 Forgot password?
+               </Link>
+             </Grid>
+             
+           </Grid>
+         </Box>
+       </Box>
+    
+     </Container>
+
+ );
+}
+
+const mapStateToProps = state => {
+ return {
+   auth: state.auth
+ };
+}
+
+const mapDispatchToProps = dispatch => {
+ return {
+   login: (username, password) => dispatch(login(username, password))
+ };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
