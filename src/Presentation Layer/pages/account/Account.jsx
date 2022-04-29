@@ -1,22 +1,13 @@
 import { useState } from 'react';
-import { Box, Container, Grid, Typography } from '@mui/material';
-import { AccountProfile } from '../components/account/account-profile';
-import { AccountProfileDetails } from '../components/account/account-profile-details';
+import { Box, Container, Grid, Typography, Card } from '@mui/material';
+import AccountProfile from '../../components/account/account-profile';
+import AccountProfileDetails from '../../components/account/account-profile-details';
 import { styled } from '@mui/system';
-import Navbar from '../components/navbar';
-import { Sidebar } from '../components/sidebar';
+import Navbar from '../../components/navbar';
+import { Sidebar } from '../../components/sidebar';
 
-// const Account = () => (
-
-// );
-
-// Account.getLayout = (page) => (
-//   <DashboardLayout>
-//     {page}
-//   </DashboardLayout>
-// );
-
-// export default Account;
+import ChangePassword from '../../components/account/change-password';
+import { connect } from 'react-redux';
 
 
 const DashboardLayoutRoot = styled('div')(({ theme }) => ({
@@ -33,8 +24,6 @@ export const Account= (props) => {
   const { children } = props;
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-  
-  
   return (
     <>
 
@@ -49,11 +38,7 @@ export const Account= (props) => {
           }}
         >
              <>
-    {/* <header>
-      <title>
-        Account 
-      </title>
-    </header> */}
+ 
      <title>
         Account 
       </title>
@@ -91,7 +76,21 @@ export const Account= (props) => {
           >
             <AccountProfileDetails />
           </Grid>
+
+          <Grid
+          item
+          md={12}
+          xs={12}
+        >
+        <Card elevation={5}>
+        <ChangePassword/>
+        </Card>
         </Grid>
+
+
+        </Grid>
+
+       
       </Container>
     </Box>
   </>
@@ -106,5 +105,21 @@ export const Account= (props) => {
   );
 };
 
+// const mapStateToProps = state => {
+//   return {
+//     user: state.user
+//   };
+// }
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getaccount: (id) => dispatch(getUserAccount()),
+
+    
+
+//   };
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Account);
 
 export default Account;
