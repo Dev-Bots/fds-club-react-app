@@ -32,12 +32,6 @@ const DashboardLayoutRoot = styled('div')(({ theme }) => ({
 export const Event= () => {
   // const { children } = props;
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-
-  
-
-  
-
-
   return (
     <>
       <DashboardLayoutRoot>

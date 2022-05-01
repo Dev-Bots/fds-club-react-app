@@ -3,7 +3,7 @@ import { Box, Container, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import Navbar from '../../components/navbar';
 import { Sidebar } from '../../components/sidebar';
-import CreateEvent from '../../components/event/create-event';
+import ScoutDetailComponent from '../../components/scout/scout-details';
 
 const DashboardLayoutRoot = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -15,9 +15,12 @@ const DashboardLayoutRoot = styled('div')(({ theme }) => ({
   }
 }));
 
-export const AddNewEvent= (props) => {
+const ScoutDetails= (props) => {
   // const { children } = props;
   const [isSidebarOpen, setSidebarOpen] = useState(true);
+
+
+
   
   return (
     <>
@@ -47,7 +50,7 @@ export const AddNewEvent= (props) => {
                 sx={{ mb: 3 }}
                 variant="h4"
                 >
-                Create New Event
+                Scout Details
                 </Typography>
                 <Grid
                 container
@@ -60,7 +63,7 @@ export const AddNewEvent= (props) => {
                     md={12}
                     xs={12}
                 >
-                    <CreateEvent />
+                    <ScoutDetailComponent />
                 </Grid>
                 </Grid>
             </Container>
@@ -79,4 +82,4 @@ export const AddNewEvent= (props) => {
 };
 
 
-export default AddNewEvent;
+export default ScoutDetails;

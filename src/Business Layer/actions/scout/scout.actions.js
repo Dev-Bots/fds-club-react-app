@@ -1,6 +1,5 @@
 import scoutActionTypes from './scout.action.types'
 
-
 // GET ALL SCOUTS (FOR LIST)
 const scoutsLoading = () => {
     return { type: scoutActionTypes.SCOUTS_LOADING }
@@ -76,6 +75,22 @@ const scoutDeleted = (scout) => ({
 
 const scoutDeleteError = (errorMessage) => ({
     type: scoutActionTypes.SCOUT_DELETE_ERROR,
+    payload: errorMessage,
+})
+
+
+// DELETE ALL SCOUTS 
+const scoutsDeleting = () => {
+    return { type: scoutActionTypes.SCOUTS_DELETING }
+}
+
+const scoutsDeleted = (scout) => ({
+    type: scoutActionTypes.SCOUTS_DELETED,
+    payload: scout,
+})
+
+const scoutsDeleteError = (errorMessage) => ({
+    type: scoutActionTypes.SCOUTS_DELETE_ERROR,
     payload: errorMessage,
 })
 
